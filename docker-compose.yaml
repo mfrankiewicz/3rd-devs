@@ -1,0 +1,10 @@
+services:
+    node-cli:
+        build: .
+        entrypoint: bash
+        working_dir: /app
+        ports:
+            - 3000:3000
+            - 15500:15500
+        volumes:
+            - .:/app
