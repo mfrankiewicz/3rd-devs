@@ -8,9 +8,12 @@ SHELL ["/bin/bash", "-c"]
 
 RUN curl -fsSL https://bun.sh/install | bash
 
-RUN source /root/.bashrc && bun install && yarn global add promptfoo@0.93 --verbose
+RUN apt update && apt install -y libopenblas-dev libfaiss-dev patchelf cmake tmux
+
+RUN source /root/.bashrc && bun install --verbose && yarn global add promptfoo@0.93 --verbose
 
 EXPOSE 3000
+EXPOSE 5173
 EXPOSE 15500
 
 ENTRYPOINT ["bash"]
